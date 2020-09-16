@@ -5,6 +5,7 @@ class Program
     static void Main(string[] args)
     {
         string contents = "";
+        int counter = 1;
 
         System.Console.WriteLine("Öppnar byrålådan...");
 
@@ -22,6 +23,7 @@ class Program
             {
                 System.Console.WriteLine("Tömmer byrån på " + contents);
                 contents = "";
+                counter = 1;
             }
             else
             {
@@ -29,9 +31,14 @@ class Program
                 {
                     contents = input.Trim();
                 }
+                else if (counter >= 3)
+                {
+                    Console.WriteLine("Nu är det fullt i lådan som innehåller " + counter + " saker");
+                }
                 else
                 {
                     contents = contents + " och " + input.Trim();
+                    counter++;
                 }
             }
 
